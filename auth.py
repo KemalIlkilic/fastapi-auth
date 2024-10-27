@@ -22,6 +22,10 @@ ALGORITHM = Config.JWT_ALGORITHM
 ACCESS_TOKEN_EXPIRY = 3600
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated = "auto")
+#built-in fastapi utility. Kendisi Header içindeki Authorization kısmına bakıp
+#Bearer 3912321sdakdassda token ya . Bearer yazıyo mu kontrol ediyor. Sonrasında karşılık gelen token stringini alıyor.
+#This creates a callable dependency that will look for a Bearer token in the Authorization header
+#The tokenUrl="auth/token" parameter tells FastAPI where the token endpoint is (this is used for OpenAPI/Swagger documentation)
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 router = APIRouter(prefix="/auth", tags=['auth'])
